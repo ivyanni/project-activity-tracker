@@ -1,0 +1,18 @@
+{
+  "name": "frontend",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./app",
+  "scripts": {
+    "build": "webpack -p",
+    "dev": "webpack-dev-server --env.development --hot --inline",
+    "prod": "webpack --env.production"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "html-webpack-plugin": "^2.30.1",
+    "webpack": "3.8.1",
+    "webpack-dev-server": "2.9.4"
+  }
+}
