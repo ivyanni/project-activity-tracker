@@ -1,0 +1,8 @@
+.footer {
+    bottom: 0;
+    position: absolute;
+}
+
+body {
+    padding: 0 20px;
+}

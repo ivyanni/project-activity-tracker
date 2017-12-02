@@ -29,6 +29,10 @@ module.exports = {
                 query: {
                     presets: ['env', 'react']
                 }
+            },
+            {
+                test: /\.css$/,
+                loader: 'style-loader!css-loader'
             }
         ]
     },
@@ -36,5 +40,14 @@ module.exports = {
     output: {
         path: PATHS.build,
         filename: 'bundle.js'
-    }
+    },
+
+    plugins: [
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery',
+            'window.jQuery': 'jquery',
+            Popper: ['popper.js', 'default']
+        })
+    ]
 };
