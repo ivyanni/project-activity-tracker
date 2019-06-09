@@ -1,0 +1,173 @@
+*, *:after, *:before {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: Roboto Light, Arial, serif;
+}
+
+.navbar-brand {
+    font-family: Roboto Medium, Arial, serif;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+input {
+    outline: none;
+}
+
+#app {
+    width: 100%;
+    text-align: center;
+}
+
+input[type=color].form-control {
+    height: auto;
+}
+
+.modal {
+    text-align: left;
+}
+
+.container {
+    margin-top: 10px;
+    display: inline-block;
+}
+
+body > section {
+    height: 100%;
+    width: 100%;
+}
+
+h1 {
+    color: #183147;
+}
+
+#chart {
+    margin: auto;
+    height: 490px;
+    background: transparent;
+    opacity: 0.9;
+    border: 1px solid #183147;
+}
+
+.loader {
+    border: 10px solid #ffffff; /* Light grey */
+    border-top: 10px solid #f8bf4c; /* Blue */
+    border-radius: 50%;
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#chart line {
+    stroke: #183147;
+}
+
+#chart marker #end {
+    fill: #cc0000;
+}
+
+.tick line {
+    stroke-dasharray: 3;
+}
+
+.tick text {
+    font-size: small;
+    fill: #183147;
+}
+
+.phase-text {
+    writing-mode: vertical-lr;
+}
+
+#chart line.vertical-marker.now {
+    stroke: #c00;
+    stroke-width: 2px;
+}
+
+#chart line.vertical-marker.predict {
+    stroke: #c00;
+    stroke-width: 2px;
+    stroke-dasharray: 6;
+}
+
+#chart line.vertical-marker.last-phase {
+    stroke: #183147;
+    stroke-width: 2px;
+}
+
+#chart line.vertical-marker.finish {
+    stroke: #09f;
+    stroke-width: 2px;
+}
+
+#chart line.phase-marker {
+    stroke: #00ff00;
+    stroke-width: 3px;
+}
+
+#chart rect.phase-area {
+    fill: #00ff00;
+    opacity: 90%;
+}
+
+#chart line.group-section {
+    stroke-width: 1px;
+}
+
+/*circle.dot {
+    fill: #2b2b2b;
+}*/
+
+/*circle.deldot {
+    fill: #cc0000;
+}*/
+
+/* Override d3tip */
+
+.d3-tip {
+    line-height: 1;
+    font-weight: normal;
+    padding: 8px;
+    background: #183147DD;
+    color: #fff;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+/* Tiny Flex Grid */
+
+[flex] {
+    display: flex;
+}
+[flex-fill] {
+    flex: 1;
+}
+[flex-full-center] {
+    align-items: center;
+    justify-content: center;
+}
+[flex-direction=column] {
+    flex-direction: column;
+}
+[flex-direction=row] {
+    flex-direction: row;
+}
+[flex-size="40"] {
+    flex: 40;
+}
+[flex-size="60"] {
+    flex: 60;
+}

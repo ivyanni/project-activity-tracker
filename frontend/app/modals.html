@@ -1,0 +1,365 @@
+<div class="modal fade" id="layerModal" tabindex="-1" role="dialog" aria-labelledby="newStreamModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <form class="was-validated">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="layerModalTitle">Edit layer</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="layerId" hidden>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="name-addon5">Name</span>
+                        </div>
+                        <input id="layerName" type="text" class="form-control" aria-label="Name" aria-describedby="name-addon5" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="finish-date-addon">Finish date</span>
+                        </div>
+                        <input id="finishDate" type="date" class="form-control" aria-label="Finish date" aria-describedby="finish-date-addon" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="project-addon">Project</span>
+                        </div>
+                        <select id="projectSelect" class="custom-select project-select" aria-label="Project" aria-describedby="project-addon" required/>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger edit-modal-btn" onclick="deleteLayer()" data-toggle="tooltip" data-placement="top" data-html="true" title="<b>Be careful!</b><br/>All objects under this layer will be deleted">Remove</button>
+                    <button type="button" class="btn btn-primary edit-modal-btn" onclick="saveLayer()">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="newLayerModal" tabindex="-1" role="dialog" aria-labelledby="newStreamModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <form class="was-validated">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="newLayerModalTitle">New layer</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="name-addon6">Name</span>
+                        </div>
+                        <input id="newLayerName" type="text" class="form-control" aria-label="Name" aria-describedby="name-addon6" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="finish-date-addon2">Finish date</span>
+                        </div>
+                        <input id="newFinishDate" type="date" class="form-control" aria-label="Finish date" aria-describedby="finish-date-addon2" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="project-addon2">Project</span>
+                        </div>
+                        <select id="newProjectSelect" class="custom-select project-select" aria-label="Project" aria-describedby="project-addon2" required/>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary new-modal-btn" onclick="createLayer()">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="newProjectModal" tabindex="-1" role="dialog" aria-labelledby="newStreamModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <form class="was-validated">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="newProjectModalTitle">New project</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="project-name-addon">Name</span>
+                        </div>
+                        <input id="newProjectName" type="text" class="form-control" aria-label="Name" aria-describedby="name-addon" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary new-modal-btn" onclick="createProject()">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="projectModal" tabindex="-1" role="dialog" aria-labelledby="newStreamModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <form class="was-validated">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="projectModalTitle">New project</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="projectId" hidden>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="project-name-addon2">Name</span>
+                        </div>
+                        <input id="projectName" type="text" class="form-control" aria-label="Name" aria-describedby="name-addon" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger edit-modal-btn" onclick="deleteProject()" data-toggle="tooltip" data-placement="top" data-html="true" title="<b>Be careful!</b><br/>All layers will be deleted">Remove</button>
+                    <button type="button" class="btn btn-primary edit-modal-btn" onclick="saveProject()">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="newStreamModal" tabindex="-1" role="dialog" aria-labelledby="newStreamModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <form class="was-validated">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="newStreamModalTitle">New stream</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="streamId" hidden>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="name-addon">Name</span>
+                        </div>
+                        <input id="streamName" type="text" class="form-control" aria-label="Name" aria-describedby="name-addon" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="order-addon">Order</span>
+                        </div>
+                        <input id="streamOrder" type="number" class="form-control" aria-label="Order" aria-describedby="order-addon" value="0" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary new-modal-btn" onclick="createStream()">Create</button>
+                    <button type="button" class="btn btn-danger edit-modal-btn" onclick="deleteStream()" data-toggle="tooltip" data-placement="top" data-html="true" title="<b>Be careful!</b><br/>All events below this stream will be deleted">Remove</button>
+                    <button type="button" class="btn btn-primary edit-modal-btn" onclick="saveStream()">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="newPhaseModal" tabindex="-1" role="dialog" aria-labelledby="newPhaseModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <form class="was-validated">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="newPhaseModalTitle">New phase</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="phaseId" hidden>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="name-addon2">Name</span>
+                        </div>
+                        <input type="text" id="phaseName" class="form-control" aria-label="Name" aria-describedby="name-addon2" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="start-date-addon">Start date</span>
+                        </div>
+                        <input type="date" id="phaseStartDate" class="form-control" aria-label="Start date" aria-describedby="start-date-addon" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="end-date-addon">End date</span>
+                        </div>
+                        <input type="date" id="phaseEndDate" class="form-control" aria-label="End date" aria-describedby="end-date-addon" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="color-addon">Color</span>
+                        </div>
+                        <input type="color" id="phaseColor" class="form-control" aria-label="Color" aria-describedby="color-addon" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary new-modal-btn" onclick="createPhase()">Create</button>
+                    <button type="button" class="btn btn-danger edit-modal-btn" onclick="deletePhase()" data-toggle="tooltip" data-placement="top" data-html="true" title="<b>Be careful!</b><br/>All deliverables attached to this phase will be deleted">Remove</button>
+                    <button type="button" class="btn btn-primary edit-modal-btn" onclick="savePhase()">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bd-example-modal-lg" id="newEventModal" tabindex="-1" role="dialog" aria-labelledby="newEventModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <form class="was-validated">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="newEventModalTitle">New event</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col align-self-center">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="name-addon3">Name</span>
+                                    </div>
+                                    <input id="eventName" type="text" class="form-control" aria-label="Name" aria-describedby="name-addon3" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col align-self-center">
+                                <input type="text" id="eventId" hidden>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="date-addon">Date</span>
+                                    </div>
+                                    <input id="eventDate" type="date" class="form-control" aria-label="Date" aria-describedby="date-addon" required>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="stream-addon">Stream</span>
+                                    </div>
+                                    <select id="eventStream" class="custom-select stream-input" aria-label="Stream" aria-describedby="stream-addon" required/>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="dependencies-addon">Dependencies</span>
+                                    </div>
+                                    <select id="dependencies" multiple="multiple" class="custom-select dep-input" aria-label="Dependencies" aria-describedby="dependencies-addon" />
+                                </div>
+                                <hr />
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="completionDate-addon">Completed on</span>
+                                    </div>
+                                    <input id="eventCompletionDate" type="date" class="form-control" aria-label="Completion Date" aria-describedby="completionDate-addon">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="input-group mb-3"  style="height: 95%;">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="description-addon">Description</span>
+                                    </div>
+                                    <textarea id="eventDescription" class="form-control" aria-label="Description" aria-describedby="description-addon" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="eventCreateButton" type="button" class="btn btn-primary new-modal-btn" onclick="createNewEvent()">Create</button>
+                    <button type="button" class="btn btn-danger edit-modal-btn" onclick="deleteEvent()">Remove</button>
+                    <button type="button" class="btn btn-primary edit-modal-btn" onclick="saveEvent()">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bd-example-modal-lg" id="newDeliverableModal" tabindex="-1" role="dialog" aria-labelledby="newDeliverableModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <form class="was-validated">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="newDeliverableModalTitle">New deliverable</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col align-self-center">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="name-addon4">Name</span>
+                                    </div>
+                                    <input id="delName" type="text" class="form-control" aria-label="Name" aria-describedby="name-addon4" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col align-self-center">
+                                <input type="text" id="deliverableId" hidden>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="stream-addon2">Stream</span>
+                                    </div>
+                                    <select id="delStream" class="custom-select stream-input" aria-label="Stream" aria-describedby="stream-addon2" required/>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="phase-addon">Phase</span>
+                                    </div>
+                                    <select id="delPhase" class="custom-select" aria-label="Phase" aria-describedby="phase-addon" required/>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="dependencies-addon2">Dependencies</span>
+                                    </div>
+                                    <select id="dependencies2" multiple="multiple" class="custom-select dep-input" aria-label="Dependencies" aria-describedby="dependencies-addon2" />
+                                </div>
+                                <hr />
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="completionDate-addon2">Completed on</span>
+                                    </div>
+                                    <input id="delCompletionDate" type="date" class="form-control" aria-label="Completion Date" aria-describedby="completionDate-addon2">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="input-group mb-3"  style="height: 95%;">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="description-addon2">Description</span>
+                                    </div>
+                                    <textarea id="delDescription" class="form-control" aria-label="Description" aria-describedby="description-addon2" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="delCreateButton" type="button" class="btn btn-primary new-modal-btn" onclick="createNewDeliverable()">Create</button>
+                    <button type="button" class="btn btn-danger edit-modal-btn" onclick="deleteDeliverable()">Remove</button>
+                    <button type="button" class="btn btn-primary edit-modal-btn" onclick="saveDeliverable()">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal hide wait-modal" id="pleaseWaitDialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-body">
+            <div class="loader"></div>
+        </div>
+    </div>
+</div>
