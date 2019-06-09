@@ -1,0 +1,8 @@
+// Your variable overrides
+$theme-colors: (
+        "primary": #183147,
+        "secondary": #f8bf4c
+);
+$enable-rounded: false;
+// Bootstrap and its default variables
+@import "./node_modules/bootstrap/scss/bootstrap";

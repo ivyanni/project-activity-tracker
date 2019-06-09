@@ -27,16 +27,31 @@ module.exports = {
                 ],
                 test: /\.jsx?$/,
                 query: {
-                    presets: ['env', 'react']
+                    presets: ['env']
                 }
             },
             {
                 test: /\.css$/,
                 loader: 'style-loader!css-loader'
+            },
+            {
+                test: /\.html$/,
+                loader: 'raw-loader'
+            },
+            {
+                test: /\.(jpg|png|svg|gif)$/,
+                loader: 'file-loader'
+            },
+            {
+                test: /\.(ttf|eot|woff|woff2)$/,
+                loader: 'file-loader'
+            },
+            {
+                test: /\.scss$/,
+                loader: 'style-loader!css-loader!sass-loader'
             }
         ]
     },
-
     output: {
         path: PATHS.build,
         filename: 'bundle.js'
