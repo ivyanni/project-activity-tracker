@@ -25,7 +25,7 @@
     "sass-loader": "^7.0.1",
     "d3": "^3.5.16",
     "d3-tip": "^0.6.7",
-    "jquery": "3.2.1",
+    "jquery": "3.5.0",
     "popper.js": "^1.14.3",
     "style-loader": "0.19.0",
     "webpack": "3.8.1",
